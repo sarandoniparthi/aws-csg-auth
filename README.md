@@ -1,3 +1,1 @@
-ng g c home
-ng g c login
-ng g s cognito
+# Angular 7 application that uses AWS Cognito and ADFS to authenticate
