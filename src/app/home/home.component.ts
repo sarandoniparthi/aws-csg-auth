@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CognitoService } from '../cognito.service';
 import { Router } from '@angular/router';
+import { ASTWithSource } from '@angular/compiler';
 
 @Component({
   selector: 'app-home',
@@ -22,6 +23,7 @@ export class HomeComponent implements OnInit {
   printUserDetails() {
     console.log(this.cognitoService.auth);
   }
+
 
   printToken() {
     console.log(this.cognitoService.accessToken);
