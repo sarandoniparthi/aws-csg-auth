@@ -71,7 +71,7 @@ export class CognitoService {
       }
     });
 
-   
+
   }
 
   onFailureMethod() {
@@ -96,140 +96,140 @@ export class CognitoService {
 
   }
 
-  details(){
+  details() {
 
-   // Credentials will be available when this function is called.
-   AWS.config.getCredentials(function () {
+    // Credentials will be available when this function is called.
+    AWS.config.getCredentials(function () {
 
-    var accessKeyId = AWS.config.credentials.accessKeyId;
-    var secretaccesskey = AWS.config.credentials.secretAccessKey;
-    var sessiontoken = AWS.config.credentials.sessionToken;
-    console.log(`
+      var accessKeyId = AWS.config.credentials.accessKeyId;
+      var secretaccesskey = AWS.config.credentials.secretAccessKey;
+      var sessiontoken = AWS.config.credentials.sessionToken;
+      console.log(`
        accesskeyid: ${accessKeyId} 
        secretaccesskey: ${secretaccesskey} 
        sessiontoken: ${sessiontoken}
        `);
-  });
-  
-  
-  //reading dynamodb table names
-  AWS.config.update({ region: "us-east-1" });
-  var ddb = new AWS.DynamoDB({ apiVersion: '2012-08-10' });
-  ddb.listTables({ Limit: 10 }, function (err, data) {
-    if (err) {
-      console.log("Error", err);
-    } else {
-      console.log("Table names are ", data.TableNames);
-    }
-  });
+    });
 
 
-
- // Call S3 to list the buckets
- /* var s3 = new AWS.S3({apiVersion: '2006-03-01'});    
-  s3.listBuckets(function(err, data) {
-    if (err) {
-      console.log("Error", err);
-    } else {
-      console.log("Success", data.Buckets);
-    }
-  }); 
-  */
-
-
-
-  // sending emails using sms from aws
-
-  // var params = {
-  //   Destination: { /* required */
-  //     CcAddresses: [
-  //         /* 'Suresh.Gangavarapu@broadridge.com',
-  //     more items */
-  //     ],
-  //     ToAddresses: [
-  //       'saran.doniparthi@broadridge.com',
-  //       /* more items */
-  //     ]
-  //   },
-  //   Message: { /* required */
-  //     Body: { /* required */
-  //       Html: {
-  //        Charset: "UTF-8",
-  //        Data: "HTML_FORMAT_BODY"
-  //       },
-  //       Text: {
-  //        Charset: "UTF-8",
-  //        Data: "TEXT_FORMAT_BODY"
-  //       }
-  //      },
-  //      Subject: {
-  //       Charset: 'UTF-8',
-  //       Data: 'Test email'
-  //      }
-  //     },
-  //   Source: 'saran.doniparthi@broadridge.com', /* required */
-  //   ReplyToAddresses: [
-  //      /* 'EMAIL_ADDRESS',
-  //     more items */
-  //   ],
-  // };
-  
-  // // Create the promise and SES service object
-  // var sendPromise = new AWS.SES({apiVersion: '2010-12-01'}).sendEmail(params).promise();
-  
-  // // Handle promise's fulfilled/rejected states
-  // sendPromise.then(
-  //   function(data) {
-  //     console.log(data.MessageId);
-  //   }).catch(
-  //     function(err) {
-  //     console.error(err,err.stack);
-  //   });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // You can use amazon-cognito-identity-js to receive information about your current user:
-  var param = {
-    UserPoolId: environment.userPoolId,
-    ClientId: environment.clientId
-  }
-  var userPool = new CognitoUserPool(param);
-  this.user = userPool.getCurrentUser();
-
-  //After successfull login,getting session tockens.
-  this.user.getSession(function (err, session) {
-    if (err) {
-      console.log(err, err.stack);
-    } else {
-      // console.log(session);
-    }
-  });
-
-
-  this.user.getUserAttributes(function (err, data) {
-    if (err) {
-      console.log(err, err.stack);
-    }
-    else {
-      //console.log(`user attributes:${data}`);
-      for (let i = 0; i < data.length; i++) {
-        console.log(`attribute  ${data[i].getName()}  has value  ${data[i].getValue()}`);
+    //reading dynamodb table names
+    AWS.config.update({ region: "us-east-1" });
+    var ddb = new AWS.DynamoDB({ apiVersion: '2012-08-10' });
+    ddb.listTables({ Limit: 10 }, function (err, data) {
+      if (err) {
+        console.log("Error", err);
+      } else {
+        console.log("Table names are ", data.TableNames);
       }
+    });
+
+
+
+    // Call S3 to list the buckets
+    /* var s3 = new AWS.S3({apiVersion: '2006-03-01'});    
+     s3.listBuckets(function(err, data) {
+       if (err) {
+         console.log("Error", err);
+       } else {
+         console.log("Success", data.Buckets);
+       }
+     }); 
+     */
+
+
+
+    // sending emails using sms from aws
+
+    // var params = {
+    //   Destination: { /* required */
+    //     CcAddresses: [
+    //         /* 'Suresh.Gangavarapu@broadridge.com',
+    //     more items */
+    //     ],
+    //     ToAddresses: [
+    //       'saran.doniparthi@broadridge.com',
+    //       /* more items */
+    //     ]
+    //   },
+    //   Message: { /* required */
+    //     Body: { /* required */
+    //       Html: {
+    //        Charset: "UTF-8",
+    //        Data: "HTML_FORMAT_BODY"
+    //       },
+    //       Text: {
+    //        Charset: "UTF-8",
+    //        Data: "TEXT_FORMAT_BODY"
+    //       }
+    //      },
+    //      Subject: {
+    //       Charset: 'UTF-8',
+    //       Data: 'Test email'
+    //      }
+    //     },
+    //   Source: 'saran.doniparthi@broadridge.com', /* required */
+    //   ReplyToAddresses: [
+    //      /* 'EMAIL_ADDRESS',
+    //     more items */
+    //   ],
+    // };
+
+    // // Create the promise and SES service object
+    // var sendPromise = new AWS.SES({apiVersion: '2010-12-01'}).sendEmail(params).promise();
+
+    // // Handle promise's fulfilled/rejected states
+    // sendPromise.then(
+    //   function(data) {
+    //     console.log(data.MessageId);
+    //   }).catch(
+    //     function(err) {
+    //     console.error(err,err.stack);
+    //   });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // You can use amazon-cognito-identity-js to receive information about your current user:
+    var param = {
+      UserPoolId: environment.userPoolId,
+      ClientId: environment.clientId
     }
-  });
+    var userPool = new CognitoUserPool(param);
+    this.user = userPool.getCurrentUser();
+
+    //After successfull login,getting session tockens.
+    this.user.getSession(function (err, session) {
+      if (err) {
+        console.log(err, err.stack);
+      } else {
+        // console.log(session);
+      }
+    });
+
+
+    this.user.getUserAttributes(function (err, data) {
+      if (err) {
+        console.log(err, err.stack);
+      }
+      else {
+        //console.log(`user attributes:${data}`);
+        for (let i = 0; i < data.length; i++) {
+          console.log(`attribute  ${data[i].getName()}  has value  ${data[i].getValue()}`);
+        }
+      }
+    });
 
 
 
