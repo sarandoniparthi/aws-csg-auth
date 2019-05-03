@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CognitoService } from '../cognito.service';
 import { Router } from '@angular/router';
-import { ASTWithSource } from '@angular/compiler';
+
 
 @Component({
   selector: 'app-home',
@@ -10,8 +10,8 @@ import { ASTWithSource } from '@angular/compiler';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private cognitoService : CognitoService, private router : Router) {
-    if(this.router.url.indexOf('?') !== -1 && this.cognitoService.isAuthenticated) {
+  constructor(private cognitoService: CognitoService, private router: Router) {
+    if (this.router.url.indexOf('?') !== -1 && this.cognitoService.isAuthenticated) {
       this.router.navigateByUrl(this.router.url.substring(0, this.router.url.indexOf('?')));
     } else {
       this.cognitoService.login();
@@ -32,4 +32,10 @@ export class HomeComponent implements OnInit {
   signOut() {
     this.cognitoService.signOut();
   }
+
+  getdt(){
+this.cognitoService.details();
+
+  }
+
 }
