@@ -1,5 +1,5 @@
 # Angular 7 application that uses AWS Cognito and SAML to authenticate
-
+# This application uses OKTA SAML Provider with aws cognito  
 # when you run the app localhost:4200
 ![image](https://user-images.githubusercontent.com/26525621/77520675-906edd80-6ea7-11ea-923d-f11fcfb244db.png)
 
