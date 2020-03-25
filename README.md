@@ -1,1 +1,1 @@
-# Angular 7 application that uses AWS Cognito and ADFS to authenticate
+# Angular 7 application that uses AWS Cognito and SAML to authenticate
