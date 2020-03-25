@@ -5,13 +5,12 @@
 export const environment = {
   production: false,
   region: 'us-east-1',
-
-  appWebDomain: 'csgdev.auth.us-east-1.amazoncognito.com',
+  appWebDomain: 'samldemo.auth.us-east-1.amazoncognito.com',
   redirectUriSignIn: 'http://localhost:4200/home',
-  redirectUriSignOut: 'http://localhost:4200',
-  identityPoolId: 'us-east-1:b031029b-d6b6-4754-8e1a-1c3eade9d940',
-  userPoolId: 'us-east-1_4wy70wcTZ',
-  clientId: '2qi96vb65fbcevu1h1av8uen31'
+  redirectUriSignOut: 'http://localhost:4200/',
+  identityPoolId: 'us-east-1:40e91430-1a37-4948-b3c8-96ce45e95155',
+  userPoolId: 'us-east-1_pZeTlMILV',
+  clientId: '2mk8d592s2rj9qmmr71mtbno81'
 };
 
 /*

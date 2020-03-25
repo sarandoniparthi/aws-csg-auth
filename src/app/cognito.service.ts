@@ -8,6 +8,7 @@ import * as AWS from 'aws-sdk';
 
 
 
+
 @Injectable(
   {
     providedIn: 'root'
@@ -60,14 +61,15 @@ export class CognitoService {
 
   signedIn(session) {
     this.session = session;
-    /*  console.log(session);*/
+    //console.log(session.idToken.jwtToken);
+     console.log(session);
 
     // Use the auth credentials to create credentials from the STS metadata service and use it for any further API call
     AWS.config.region = environment.region;
     AWS.config.credentials = new AWS.CognitoIdentityCredentials({
       IdentityPoolId: environment.identityPoolId,
       Logins: {
-        "cognito-idp.us-east-1.amazonaws.com/us-east-1_4wy70wcTZ": this.session.idToken.jwtToken
+        "cognito-idp.us-east-1.amazonaws.com/us-east-1_pZeTlMILV":this.session.idToken.jwtToken
       }
     });
 
@@ -97,10 +99,16 @@ export class CognitoService {
   }
 
   details() {
-
+   // debugger;
+    console.log(AWS.config.credentials);
     // Credentials will be available when this function is called.
-    AWS.config.getCredentials(function () {
+  /*  AWS.config.getCredentials(function (error) {
+  if(error){
 
+    console.log(error.stack);
+  }
+  else{
+    
       var accessKeyId = AWS.config.credentials.accessKeyId;
       var secretaccesskey = AWS.config.credentials.secretAccessKey;
       var sessiontoken = AWS.config.credentials.sessionToken;
@@ -109,7 +117,8 @@ export class CognitoService {
        secretaccesskey: ${secretaccesskey} 
        sessiontoken: ${sessiontoken}
        `);
-    });
+  }
+    });*/
 
 
     //reading dynamodb table names
